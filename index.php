@@ -33,9 +33,11 @@
 	</table>
 -->
 
-	<div id="nav">
-       <div id="logo"><img src="images/logo.png"></div>
-   </div>
+	<div id="navigationBar">
+		 <div class="navigationItem"><img src="images/newapp-icon.png"></div>
+		 <div class="navigationItem"><h1 id="navigationTitle">WatsonHelper</h1></div>
+		 <br style="clear: left;" />
+	</div>
    
     <div id="wall_1" class="image" data-stellar-background-ratio="0.4" ></div>
     <div id="content_1" class="content">

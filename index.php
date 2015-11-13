@@ -18,6 +18,10 @@
 				href="https://www.ng.bluemix.net/docs/#starters/php/index.html#php">documentation</a>
 				or use the Start Coding guide under your app in your dashboard.
 			</td>
+			<td>
+				<p id="demo">A Paragraph.</p>
+				<button type="button" onclick="myFunction()">Try it</button>
+			</td>
 		</tr>
 	</table>
 </body>

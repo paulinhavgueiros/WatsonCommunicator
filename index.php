@@ -34,7 +34,7 @@
 -->
 
 	<div id="nav">
-       <div id="logo"><img src="Images/logo.png"></div>
+       <div id="logo"><img src="images/logo.png"></div>
    </div>
    
     <div id="wall_1" class="image" data-stellar-background-ratio="0.4" ></div>

@@ -123,15 +123,15 @@ pre {
     margin: 30px 60px;
 }
 #wall_1 {
-    background: url(../Images/swirl_pattern.png) repeat;
+    background: url(../images/swirl_pattern.png) repeat;
     background-attachment: fixed;
 }
 #wall_2 {
-    background: url(../Images/school.png) repeat;
+    background: url(../images/school.png) repeat;
     background-attachment: fixed;
 }
 #wall_3 {
-    background: url(../Images/skulls.png) repeat;
+    background: url(../images/skulls.png) repeat;
     background-attachment: fixed;
 }
 

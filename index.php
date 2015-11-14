@@ -43,7 +43,7 @@
 	
 	<div id="bg1" data-stellar-background-ratio="0.5">
 		<div class="centerBlock">
-        	<h2>Start scrolling for WatsonHelper services!</h2>
+        	<h2>Scroll for services</h2>
     	</div>
 	</div>
     

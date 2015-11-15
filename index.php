@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 <head>
 	<title>WatsonHelper Application</title>
@@ -36,7 +36,7 @@
 
 
 
-
+<!--
 	<div id="navigationBar">
 		 <div class="navigationItem"><img src="images/newapp-icon.png"></div>
 		 <div class="navigationItem"><h1 id="navigationTitle">WatsonHelper</h1></div>
@@ -49,9 +49,45 @@
 	</div>
     
     <div class="section">
-       
+  		Informacoes
+	</div>
+    
+    <div id="bg2" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
+    
+    <div class="section" >
+        <h2>Second Service</h2>
+        <p>Insert service here.</p>
+    </div>
+    
+    <div id="bg3" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
+    
+    <div class="section">
+        <h2>Third Service</h2>
+        <p>Insert service here.</p>
+    </div>
+    
+    <div id="bg4" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
+    
+    <div id="footer" class="section">
+        <h2>Footer -> arrumar</h2>
+        <p>Insert content.</p>
+    </div>
+    
+
+</body>
+</html>
+-->
 
 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CF PHP MySQL Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
 	<h1>CF PHP MySQL Demo</h1>
 	<input type="button" onclick="window.open('init.php');" class="btn" value="Create table"></input>
 	<input type="button" onclick="window.open('info.php');" class="btn" value="View PHP info"></input>
@@ -120,37 +156,5 @@ mysql_close();
 ?>
  <script src="http://code.jquery.com/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  
-  
-  
-
-
-
-
-
-	</div>
-    
-    <div id="bg2" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
-    
-    <div class="section" >
-        <h2>Second Service</h2>
-        <p>Insert service here.</p>
-    </div>
-    
-    <div id="bg3" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
-    
-    <div class="section">
-        <h2>Third Service</h2>
-        <p>Insert service here.</p>
-    </div>
-    
-    <div id="bg4" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
-    
-    <div id="footer" class="section">
-        <h2>Footer -> arrumar</h2>
-        <p>Insert content.</p>
-    </div>
-    
-
 </body>
 </html>

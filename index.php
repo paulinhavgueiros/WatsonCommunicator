@@ -79,7 +79,7 @@
 -->
 
 
-
+<!--
 /**
 * Copyright 2015 IBM Corp. All Rights Reserved.
 *
@@ -95,7 +95,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-->
+-->
 
 <?php include 'db.php';?>
 <?php

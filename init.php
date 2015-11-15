@@ -25,6 +25,7 @@
 </head>
 
 <?php
+echo "Mensagem no init.php";
 
 $sqlTable="DROP TABLE IF EXISTS MESSAGES_TABLE";
 if ($mysqli->query($sqlTable)) {

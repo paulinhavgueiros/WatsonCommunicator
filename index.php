@@ -1,5 +1,6 @@
 <?php include 'db.php';?>
 <?php
+echo "Mensagem no index.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") { //if new message is being added
     $cleaned_message = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["message"]); //remove invalid chars from input.
     $strsq0 = "INSERT INTO MESSAGES_TABLE ( MESSAGE) VALUES ('" . $cleaned_message . "');"; //query to insert new message

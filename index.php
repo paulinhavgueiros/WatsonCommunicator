@@ -29,7 +29,6 @@ if ($result = $mysqli->query($strsql)) {
     <link rel='stylesheet'  href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' type='text/css'>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" href="style.css" />
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
@@ -74,10 +73,7 @@ if ($result = $mysqli->query($strsql)) {
 	</div>
     
     <div class="section">
-        <img class="newappIcon" src="images/newapp-icon.png" />
-        <h1>
-					Welcome to the <span class="blue">PHP MySQL Sample</span> on Bluemix!
-				</h1>
+		<h1>Welcome to the <span class="blue">PHP MySQL Sample</span> on Bluemix!</h1>
         <p class="description">This introductory sample allows you to insert messages into a MySQL database. <br>
 
 

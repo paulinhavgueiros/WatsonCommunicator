@@ -2,6 +2,7 @@
 
 /*globals xhrGet xhrDelete xhrPost xhrPut*/
 /*eslint-env browser */
+/*
 var REST_DATA = 'api/todolist';
 var REST_ENV = 'api/dbinfo';
 var KEY_ENTER = 13;
@@ -116,3 +117,4 @@ function updateServiceInfo(){
 updateServiceInfo();
 loadItems();
 
+*/

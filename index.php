@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //if new message is being added
 }
 
 //Query the DB for messages
-$strsql = "select * from UBS ORDER BY COD_CNES DESC limit 100";
+$strsql = "select * from UBS where dsc_cidade="Brasília" ORDER BY COD_CNES DESC limit 100";
 if ($result = $mysqli->query($strsql)) {
    // printf("<br>Select returned %d rows.\n", $result->num_rows);
 } else {

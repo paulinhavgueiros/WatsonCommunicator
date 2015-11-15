@@ -28,7 +28,7 @@ if ($result = $mysqli->query($strsql)) {
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel='stylesheet'  href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' type='text/css'>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>

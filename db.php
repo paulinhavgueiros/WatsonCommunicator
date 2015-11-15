@@ -41,12 +41,13 @@ if(!$_ENV["VCAP_SERVICES"]){ //local dev
     $mysql_username = $db->username; 
     $mysql_password = $db->password;
 }
-echo "Debug: " . $mysql_port . $mysql_server_name . " " .  $mysql_username . " " .  $mysql_password . "\n";
 
 $mysqli = new mysqli($mysql_server_name, $mysql_username, $mysql_password, $mysql_database);
 if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     die();
+} else {
+	echo "Funcionou! ";
 }
 
 ?>

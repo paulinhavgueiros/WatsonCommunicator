@@ -41,11 +41,14 @@
     if (empty($_POST["textLID"])) {
       $textLIDErr = "Text is required (at least 3 words)";
     } else {
-      $textLID = test_input($_POST["textLID"]);
+      	$textLID = test_input($_POST["textLID"]);
+      	echo "Meu texto eh" . $textLID;
+       	$textLang = testLangID($textLID);
+ 		echo "Minha lingua eh" . $textLang;
     }
  }
  
- $textLang = testLangID($textLID);
+
  
  function test_input($data) {
     $data = trim($data);
@@ -74,6 +77,7 @@
                  <?php
                  echo "<h2>Text language: </h2>";
                  echo $textLang["lang"];
+                 echo 'Hello';
                  ?>
              </td>
          </tr>

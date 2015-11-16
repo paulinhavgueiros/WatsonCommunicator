@@ -26,7 +26,7 @@
 
 <?php
 
-$sqlTable="DROP TABLE IF EXISTS MESSAGES_TABLE";
+$sqlTable="DROP TABLE IF EXISTS FEEDBACK_TABLE";
 if ($mysqli->query($sqlTable)) {
     echo "Table dropped successfully! <br>";
 } else {
@@ -36,12 +36,13 @@ if ($mysqli->query($sqlTable)) {
 
 echo "Executing CREATE TABLE Query...<br>";
 $sqlTable="
-CREATE TABLE MESSAGES_TABLE (
- ID bigint(20) NOT NULL AUTO_INCREMENT,
- TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+CREATE TABLE FEEDBACK_TABLE (
+ ID int NOT NULL AUTO_INCREMENT=1,
+ NAME varchar(255) DEFAULT NULL,
  MESSAGE varchar(255) DEFAULT NULL,
+ TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
  PRIMARY KEY (ID)
-) DEFAULT CHARSET=utf8
+)
 ";
 
 if ($mysqli->query($sqlTable)) {

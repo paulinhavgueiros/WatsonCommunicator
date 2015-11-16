@@ -1,8 +1,9 @@
 <?php include 'db.php';?>
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") { //if new message is being added
-    $cleaned_message = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["message"]); //remove invalid chars from input.
-    $strsq0 = "INSERT INTO MESSAGES_TABLE ( MESSAGE) VALUES ('" . $cleaned_message . "');"; //query to insert new message
+if ($_SERVER["REQUEST_METHOD"] == "POST") { //new feedback being inserted
+	$cleaned_name = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["name"]);
+    $cleaned_feedback = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["feedback"]);
+    $strsq0 = "INSERT INTO FEEDBACK_TABLE (NAME, FEEDBACK) VALUES ('" . $cleaned_name . "', '" . $cleaned_feedback . "');"; //new feedback
     if ($mysqli->query($strsq0)) {
         //echo "Insert success!";
     } else {
@@ -10,8 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //if new message is being added
     }
 }
 
-//Query the DB for messages
-$strsql = "select * from MESSAGES_TABLE ORDER BY ID DESC limit 100";
+//Query the DB for feedbacks
+$strsql = "select * from FEEDBACK_TABLE ORDER BY ID DESC limit 100";
 if ($result = $mysqli->query($strsql)) {
    // printf("<br>Select returned %d rows.\n", $result->num_rows);
 } else {
@@ -35,6 +36,7 @@ if ($result = $mysqli->query($strsql)) {
     <script src="js/jquery.stellar.js"></script>
     <script src="js/script.js"></script>
     <script src="js/jquery.nicescroll.js"></script>
+    <script src="index.js"></script>
     
 </head>
 <body>
@@ -110,10 +112,15 @@ if ($result = $mysqli->query($strsql)) {
         <tr>
             <form method = "POST"> <!--FORM: will submit to same page (index.php), and if ($_SERVER["REQUEST_METHOD"] == "POST") will catch it --> 
                 <td colspan = "2">
-                <input type = "text" style = "width:100%" name = "message" autofocus onchange="saveChange(this)" onkeydown="onKey(event)"></input>
+                <input type = "text" style = "width:100%" name = "name" autofocus onchange="saveChange(this)" onkeydown="onKey(event)"></input>
                 </td>
+                
+                <td colspan = "2">
+                
+                <textarea name="feedback" rows="10" cols="30"></textarea>
+                
                 <td>
-                    <button class = "mybutton" type = "submit">Add New Message</button></td></tr>
+                    <button class = "mybutton" type = "submit">Submit Feedback</button></td></tr>
                 </td> 
             </form>
         </tr>

@@ -18,8 +18,10 @@
 	$finalstr = curl_exec($newcurl);
 	echo 'palavra teste 2 <br/>';
 	
-	$decoded = json_decode($finalstr, true);
-     echo "decoded:" . $decoded . '<br/>';
+	//$decoded = json_decode($finalstr, true);
+	var_dump(json_decode($finalstr, true));
+     
+     /*echo "decoded:" . $decoded . '<br/>';
      
      echo 'word0 count eh ' . $decoded["0"] . '<br/>';
      echo 'char1 count eh ' . $decoded["1"] . '<br/>';
@@ -27,7 +29,7 @@
      echo 'word count eh ' . $decoded["word_count"] . '<br/>';
      echo 'char count eh ' . $decoded["character_count"] . '<br/>';
      echo 'translation eh ' . $decoded["translation"] . '<br/>';
-     echo 'translation de novo eh ' . $decoded["translations"][0]["translation"] . '<br/>';
+     echo 'translation de novo eh ' . $decoded["translations"][0]["translation"] . '<br/>';*/
      
      return $finalstr;
     

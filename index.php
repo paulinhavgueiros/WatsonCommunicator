@@ -21,13 +21,13 @@
 	$decoded = json_decode($finalstr, true);
      echo "decoded:" . $decoded . '<br/>';
      
-     echo 'word0 count eh ' . $finalstr["0"] . '<br/>';
-     echo 'char1 count eh ' . $finalstr["1"] . '<br/>';
+     echo 'word0 count eh ' . $decoded["0"] . '<br/>';
+     echo 'char1 count eh ' . $decoded["1"] . '<br/>';
      
-     echo 'word count eh ' . $finalstr["word_count"] . '<br/>';
-     echo 'char count eh ' . $finalstr["character_count"] . '<br/>';
-     echo 'translation eh ' . $finalstr["translation"] . '<br/>';
-     echo 'translation de novo eh ' . $finalstr["translations"] . '<br/>';
+     echo 'word count eh ' . $decoded["word_count"] . '<br/>';
+     echo 'char count eh ' . $decoded["character_count"] . '<br/>';
+     echo 'translation eh ' . $decoded["translation"] . '<br/>';
+     echo 'translation de novo eh ' . $decoded["translations"][0]["translation"] . '<br/>';
      
      return $finalstr;
     

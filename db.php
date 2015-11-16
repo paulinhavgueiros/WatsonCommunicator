@@ -29,7 +29,7 @@ if(!$_ENV["VCAP_SERVICES"]){ //local dev
         $db = $vcap_services->{'mysql-5.5'}[0]->credentials;
     } 
     else if($vcap_services->{'cleardb'}){ //if cleardb mysql db service is bound to this application
-        $db = $vcap_services->{'cleardb'}[0]->credentials; 
+        $db = $vcap_services->{'cleardb'}[0]->credentials;
     } 
     else { 
         echo "Error: MySQL database not found.<br>";
@@ -46,8 +46,6 @@ $mysqli = new mysqli($mysql_server_name, $mysql_username, $mysql_password, $mysq
 if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     die();
-} else {
-	echo "NOT FAILED";
 }
 
 ?>

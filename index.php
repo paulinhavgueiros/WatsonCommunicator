@@ -1,82 +1,155 @@
- <!DOCTYPE html>
- <html>
- <head>
-     <title>PHP Starter Application</title>
-     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-     <link rel="stylesheet" href="style.css" />
- </head>
- <body>
- 
- <?php
- function testLangID($data) {
-     $curl = curl_init();
-     
-     $post_args = array(
-         'txt' => $data,
-         'sid' => 'lid-generic',
-         'rt' => 'json' 
-     );
-     
-     curl_setopt($curl, CURLOPT_POST, true);
-     curl_setopt($curl, CURLOPT_POSTFIELDS, $post_args);
-     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-     curl_setopt($curl, CURLOPT_USERPWD, "33f4756c-d320-4b45-9c1d-21fb52d56c15:p5UqhEj7gvcG");
-     curl_setopt($curl, CURLOPT_URL, "https://gateway.watsonplatform.net/language-translation/api");
-     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
- 
-     $result = curl_exec($curl);
-     
-     curl_close($curl);
-     
-     $decoded = json_decode($result, true);
-     
-     return $decoded;
- }
- // define variables and set to empty values
- $textLID = "";
- $textLIDErr = "";
- $textLang = "";
- 
- if ($_SERVER["REQUEST_METHOD"] == "POST") {  
-    if (empty($_POST["textLID"])) {
-      $textLIDErr = "Text is required (at least 3 words)";
+<?php include 'db.php';?>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") { //new feedback being inserted
+	$cleaned_name = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["name"]);
+    $cleaned_feedback = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["feedback"]);
+    $strsq0 = "INSERT INTO FEEDBACK_TABLE (NAME, FEEDBACK) VALUES ('" . $cleaned_name . "', '" . $cleaned_feedback . "');"; //new feedback
+    if ($mysqli->query($strsq0)) {
+        //echo "Insert success!";
     } else {
-      $textLID = test_input($_POST["textLID"]);
+        echo "Cannot insert into the data table; check whether the table is created, or the database is active. "  . mysqli_error();
     }
- }
- 
- $textLang = testLangID($textLID);
- 
- function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
- }
- ?>
- 
-     <table>
-         <tr>
-             <td style='width: 30%;'><img class = 'newappIcon' src='images/newapp-icon.png'>
-             </td>
-             <td>
-                 <h2>Watson Language Identification</h2>
-                 <p><span class="error">* required field.</span></p>
-                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                     Enter text to identify language: <textarea name="textLID" rows="5" cols="40"><?php echo $textLID;?></textarea>
-                       
-                     <span class="error">* <?php echo $textLIDErr;?></span>
-                       
-  
-                     <input type="submit" name="submit" value="Submit">
-                 </form>
-             
-                 <?php
-                 echo "<h2>Text language: </h2>";
-                 echo $textLang["lang"];
-                 ?>
-             </td>
-         </tr>
-     </table>
- </body>
- </html>
+}
+
+//Query the DB for feedbacks
+$strsql = "select * from FEEDBACK_TABLE ORDER BY ID DESC limit 100";
+if ($result = $mysqli->query($strsql)) {
+   // printf("<br>Select returned %d rows.\n", $result->num_rows);
+} else {
+        //Could be many reasons, but most likely the table isn't created yet. init.php will create the table.
+        echo "<b>Can't query the database, did you <a href = init.php>Create the table</a> yet?</b>";
+    }
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WatsonHelper Application</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel='stylesheet'  href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' type='text/css'>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="js/jquery.stellar.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/jquery.nicescroll.js"></script>
+    <script src="index.js"></script>
+    
+</head>
+<body>
+<!-- 
+	<table>
+		<tr>
+			<td style='width: 30%;'><img class = 'newappIcon' src='images/newapp-icon.png'>
+			</td>
+			<td>
+				<h1 id = "message"><?php echo "Paulinha's Hello world!"; ?>
+</h1>
+				<p class='description'></p> Thanks for creating a <span class="blue">PHP Starter Application</span>. Get started by reading our <a
+				href="https://www.ng.bluemix.net/docs/#starters/php/index.html#php">documentation</a>
+				or use the Start Coding guide under your app in your dashboard.
+			</td>
+			<td>
+				<p id="demo">A Paragraph.</p>
+				<button type="button" onclick="myFunction()">Try it</button>
+			</td>
+		</tr>
+	</table>
+-->
+
+
+
+
+	<div id="navigationBar">
+		 <div class="navigationItem"><img src="images/newapp-icon.png"></div>
+		 <div class="navigationItem"><h1 id="navigationTitle">WatsonHelper</h1></div>
+	</div>
+	
+	<div id="bg1" data-stellar-background-ratio="0.5">
+		<div class="centerBlock">
+        	<h2>Scroll for services</h2>
+    	</div>
+	</div>
+    
+    <div class="section">
+    	<h2>Watson Service</h2>
+        <p>Insert service here.</p>
+    </div>
+    
+    <div id="bg2" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
+    
+    <div class="section">
+        <h2>Second Service</h2>
+        <p>Insert service here.</p>
+    </div>
+    
+    <div id="bg3" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
+    
+    
+    <div class="section">
+
+		<h2>Please leave us your feedback!</h2>
+        <p>Description<br>
+
+            <input type="button" class = "mybutton" onclick="window.location = 'init.php';" class="btn" value="(Re-)Create table"></input></p>
+            </br>
+
+    
+    <table id='feedbackTable'><tbody>
+        
+        <?php
+            echo "<tr>\n";
+            while ($property = mysqli_fetch_field($result)) {
+            	if ($property->name != "ID") {
+            		echo '<th>' .  $property->name . "</th>\n"; //the headings
+        		}
+            }
+            echo "</tr>\n";
+
+            mysqli_data_seek ( $result, 0 );
+            if($result->num_rows == 0){ //nothing in the table
+                        echo '<td>Empty!</td>';
+            }
+                
+            while ( $row = mysqli_fetch_row ( $result ) ) {
+                echo "<tr>\n";
+                for($i = 1; $i < mysqli_num_fields ( $result ); $i ++) {
+                    echo '<td>' . "$row[$i]" . '</td>';
+                }
+                echo "</tr>\n";
+            }
+
+            $result->close();
+            mysqli_close();
+        ?>
+        <tr>
+            <form method = "POST"> <!--FORM: will submit to same page (index.php), and if ($_SERVER["REQUEST_METHOD"] == "POST") will catch it --> 
+                <td colspan = "2">
+                <input type = "text" style = "width:100%" name = "name" autofocus onchange="saveChange(this)" onkeydown="onKey(event)"></input>
+                </td>
+                
+                <td>
+                <textarea name="feedback" rows="5" cols="40"></textarea>
+                </td>
+                
+                <td>
+                    <button class = "mybutton" type = "submit">Submit Feedback</button>
+                </td> 
+            </form>
+        </tr>
+        </tbody></table>
+    </div>
+    
+    <div id="bg4" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
+    
+    <div id="footer" class="section">
+        <h2>Footer -> arrumar</h2>
+        <p>Insert content.</p>
+    </div>
+    
+
+</body>
+</html>

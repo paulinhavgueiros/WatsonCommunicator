@@ -10,13 +10,26 @@
  <?php
  function testLangID($data) {
  	echo 'Entrei <br/>';
+ 	
+ 	$post_args = array(
+         'text' => 'Hello World',
+         'source' => 'en',
+         'target' => 'es'
+     );
  	 
 	$newcurl = curl_init();
-	curl_setopt($newcurl, CURLOPT_URL, "https://gateway.watsonplatform.net/language-translation/api/v2/translate?source=en&target=es&text=handbag");
+	
+	curl_setopt($newcurl, CURLOPT_POST, true);
+    curl_setopt($newcurl, CURLOPT_POSTFIELDS, $post_args);
+	curl_setopt($newcurl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+	curl_setopt($newcurl, CURLOPT_URL, "https://gateway.watsonplatform.net/language-translation/api/v2/translate");
 	curl_setopt($newcurl, CURLOPT_USERPWD, "33f4756c-d320-4b45-9c1d-21fb52d56c15:p5UqhEj7gvcG");
+	curl_setopt($newcurl, CURLOPT_RETURNTRANSFER, true);
+	
 	echo 'palavra teste 1 <br/>';
 	$finalstr = curl_exec($newcurl);
 	echo 'palavra teste 2 <br/>';
+	curl_close($newcurl);
 	
 	//$decoded = json_decode($finalstr, true);
 	var_dump(json_decode($finalstr, true));

@@ -115,8 +115,8 @@ if ($result = $mysqli->query($strsql)) {
                 <input type = "text" style = "width:100%" name = "name" autofocus onchange="saveChange(this)" onkeydown="onKey(event)"></input>
                 </td>
                 
-                <td colspan = "2">
-                <input type = "text" style = "width:100%" name = "feedback" autofocus onchange="saveChange(this)" onkeydown="onKey(event)"></input>
+                <td>
+                <textarea name="feedback" rows="4" cols="50>Enter feedback here...</textarea>
                 </td>
                 
                 <td>

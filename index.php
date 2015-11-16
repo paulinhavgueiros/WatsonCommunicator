@@ -12,7 +12,7 @@
  	echo 'Entrei <br/>';
  	
  	$post_args = array(
-         'text' => 'Hello World',
+         'text' => "Hello World",
          'source' => 'en',
          'target' => 'es'
      );
@@ -33,6 +33,7 @@
 	
 	//$decoded = json_decode($finalstr, true);
 	var_dump(json_decode($finalstr, true));
+	echo 'palavra eh ' . $finalstr . '<br/>';
      
      /*echo "decoded:" . $decoded . '<br/>';
      

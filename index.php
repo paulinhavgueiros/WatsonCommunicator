@@ -10,11 +10,10 @@
  <?php
  function testLangID($data) {
  	echo 'Entrei <br/>';
- 	
  	 
 	$newcurl = curl_init();
 	curl_setopt($newcurl, CURLOPT_URL, "https://gateway.watsonplatform.net/language-translation/api/v2/translate?source=en&target=es&text=hello");
-	curl_setopt($newcurl, CURLOPT_USERPWD, "33f4756c-d320-4b45-9c1d-21fb52d56c15":"p5UqhEj7gvcG");
+	curl_setopt($newcurl, CURLOPT_USERPWD, "33f4756c-d320-4b45-9c1d-21fb52d56c15:p5UqhEj7gvcG");
 	$finalstr = curl_exec($newcurl);
 	echo 'final string is ' . $finalstr . '<br/>';
 	curl_close($newcurl);
@@ -71,6 +70,8 @@
        	$textLang = testLangID($textLID);
  		echo "Minha lingua eh" . $textLang;
     }
+ } else {
+ 	echo 'no request method post <br/>';
  }
  
 

@@ -25,6 +25,7 @@
 </head>
 
 <?php
+
 $sqlTable="DROP TABLE IF EXISTS MESSAGES_TABLE";
 if ($mysqli->query($sqlTable)) {
     echo "Table dropped successfully! <br>";
@@ -36,7 +37,7 @@ if ($mysqli->query($sqlTable)) {
 echo "Executing CREATE TABLE Query...<br>";
 $sqlTable="
 CREATE TABLE MESSAGES_TABLE (
- ID integer AUTO_INCREMENT,
+ ID bigint(20) NOT NULL AUTO_INCREMENT,
  TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
  MESSAGE varchar(255) DEFAULT NULL,
  PRIMARY KEY (ID)

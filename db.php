@@ -32,7 +32,7 @@ if(!$_ENV["VCAP_SERVICES"]){ //local dev
         $db = $vcap_services->{'cleardb'}[0]->credentials;
     } 
     else { 
-        echo "Error: MySQL database not found.<br>";
+        echo "Error: No suitable MySQL database bound to the application. <br>";
         die();
     }
     $mysql_database = $db->name;
@@ -41,6 +41,7 @@ if(!$_ENV["VCAP_SERVICES"]){ //local dev
     $mysql_username = $db->username; 
     $mysql_password = $db->password;
 }
+//echo "Debug: " . $mysql_server_name . " " .  $mysql_username . " " .  $mysql_password . "\n";
 
 $mysqli = new mysqli($mysql_server_name, $mysql_username, $mysql_password, $mysql_database);
 if ($mysqli->connect_errno) {

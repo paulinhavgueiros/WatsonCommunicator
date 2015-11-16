@@ -75,15 +75,30 @@ if ($result = $mysqli->query($strsql)) {
 	</div>
     
     <div class="section">
-		<h1>Welcome to the <span class="blue">PHP MySQL Sample</span> on Bluemix!</h1>
-        <p class="description">This introductory sample allows you to insert messages into a MySQL database. <br>
+    	<h2>Watson Service</h2>
+        <p>Insert service here.</p>
+    </div>
+    
+    <div id="bg2" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
+    
+    <div class="section">
+        <h2>Second Service</h2>
+        <p>Insert service here.</p>
+    </div>
+    
+    <div id="bg3" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
+    
+    
+    <div class="section">
 
+		<h2>Please leave us your feedback!</h2>
+        <p>Description<br>
 
             <input type="button" class = "mybutton" onclick="window.location = 'init.php';" class="btn" value="(Re-)Create table"></input></p>
             </br>
 
     
-    <table id='notes' class='records'><tbody>
+    <table id='feedbackTable'><tbody>
         
         <?php
             echo "<tr>\n";
@@ -91,7 +106,6 @@ if ($result = $mysqli->query($strsql)) {
             	if ($property->name != "ID") {
             		echo '<th>' .  $property->name . "</th>\n"; //the headings
         		}
-
             }
             echo "</tr>\n";
 
@@ -122,26 +136,11 @@ if ($result = $mysqli->query($strsql)) {
                 </td>
                 
                 <td>
-                    <button class = "mybutton" type = "submit">Add New Message</button>
+                    <button class = "mybutton" type = "submit">Submit Feedback</button>
                 </td> 
             </form>
         </tr>
-        </tbody>
-    </table>
-    </div>
-    
-    <div id="bg2" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
-    
-    <div class="section" >
-        <h2>Second Service</h2>
-        <p>Insert service here.</p>
-    </div>
-    
-    <div id="bg3" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
-    
-    <div class="section">
-        <h2>Third Service</h2>
-        <p>Insert service here.</p>
+        </tbody></table>
     </div>
     
     <div id="bg4" class="backgroundImage" data-stellar-background-ratio="0.5"></div>

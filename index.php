@@ -34,7 +34,7 @@
 	curl_close($newcurl);
 	
 	echo 'var dump na final string <br/>';
-	var_dump($finalstr, true);
+	var_dump($finalstr);
      
      /*echo "decoded:" . $decoded . '<br/>';
      

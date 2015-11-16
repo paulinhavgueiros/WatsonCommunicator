@@ -12,7 +12,7 @@
 	echo 'Entrei <br/>';
  	
  	$post_args = array(
-         'text' => 'Hello World',
+         'text' => $data,
          'source' => 'en',
          'target' => 'es'
      );
@@ -30,12 +30,12 @@
 	curl_setopt($newcurl, CURLOPT_RETURNTRANSFER, true);
 
 	echo 'palavra teste 1 <br/>';
-	$finalstr = curl_exec($newcurl);
+	$translation = curl_exec($newcurl);
 	echo 'palavra teste 2 <br/>';
 	curl_close($newcurl);
 	
 	echo 'var dump na final string <br/>';
-	var_dump($finalstr);
+	var_dump($translation);
      
      /*echo "decoded:" . $decoded . '<br/>';
      
@@ -47,7 +47,7 @@
      echo 'translation eh ' . $decoded["translation"] . '<br/>';
      echo 'translation de novo eh ' . $decoded["translations"][0]["translation"] . '<br/>';*/
      
-     return $finalstr;
+     return $translation;
     
     
 	/*$finalstr = $json["translations"];
@@ -94,6 +94,7 @@
  $textLID = "";
  $textLIDErr = "";
  $textLang = "";
+ $translation = "";
  
  if ($_SERVER["REQUEST_METHOD"] == "POST") {  
     if (empty($_POST["textLID"])) {
@@ -101,8 +102,8 @@
     } else {
       	$textLID = test_input($_POST["textLID"]);
       	echo "Meu texto eh" . $textLID;
-       	$textLang = testLangID($textLID);
- 		echo "Minha lingua eh" . $textLang;
+       	$translation = testLangID($textLID);
+ 		echo "Traducao: " . $translation;
     }
  } else {
  	echo 'no request method post <br/>';
@@ -134,8 +135,8 @@
                  </form>
              
                  <?php
-                 echo "<h2>Text language: </h2>";
-                 /*echo $textLang["lang"];*/
+                 echo "<h2>Translation: </h2>";
+                 echo $translation;
                  ?>
              </td>
          </tr>

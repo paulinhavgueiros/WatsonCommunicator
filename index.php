@@ -116,8 +116,8 @@ if ($result = $mysqli->query($strsql)) {
                 </td>
                 
                 <td colspan = "2">
-                
                 <textarea name="feedback" rows="10" cols="30"></textarea>
+                </td>
                 
                 <td>
                     <button class = "mybutton" type = "submit">Submit Feedback</button></td></tr>

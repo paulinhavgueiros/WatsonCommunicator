@@ -88,7 +88,9 @@ if ($result = $mysqli->query($strsql)) {
         <?php
             echo "<tr>\n";
             while ($property = mysqli_fetch_field($result)) {
-                    echo '<th>' .  $property->name . "</th>\n"; //the headings
+            	if ($property->name != "ID") {
+            		echo '<th>' .  $property->name . "</th>\n"; //the headings
+        		}
 
             }
             echo "</tr>\n";
@@ -100,7 +102,7 @@ if ($result = $mysqli->query($strsql)) {
                 
             while ( $row = mysqli_fetch_row ( $result ) ) {
                 echo "<tr>\n";
-                for($i = 0; $i < mysqli_num_fields ( $result ); $i ++) {
+                for($i = 1; $i < mysqli_num_fields ( $result ); $i ++) {
                     echo '<td>' . "$row[$i]" . '</td>';
                 }
                 echo "</tr>\n";

@@ -17,7 +17,7 @@
          'target' => 'es'
      );
      
-     var_dump();
+    var_dump($post_args);
  	 
 	$newcurl = curl_init($post_args);
 	

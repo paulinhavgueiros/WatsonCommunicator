@@ -11,6 +11,16 @@
  function testLangID($data) {
  	echo 'Entrei <br/>';
  	
+ 	 
+	$url = "https://gateway.watsonplatform.net/language-translation/api/v2/translate?source=en&target=es&text=hello";
+	$newcurl = curl_init();
+	curl_setopt($newcurl, CURLOPT_URL, $url);
+	curl_setopt($newcurl, CURLOPT_HEADER, 0);
+	curl_setopt($newcurl, CURLOPT_USERPWD, "33f4756c-d320-4b45-9c1d-21fb52d56c15":"p5UqhEj7gvcG");
+	$finalstr = curl_exec($newcurl);
+	echo 'final string is ' . $finalstr . '<br/>';
+	curl_close($newcurl);
+ 	
      $curl = curl_init();
      
      echo 'Curl:' . $curl . '<br/>';
@@ -26,7 +36,7 @@
      curl_setopt($curl, CURLOPT_POST, true);
      curl_setopt($curl, CURLOPT_POSTFIELDS, $post_args);
      curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-     curl_setopt($curl, CURLOPT_USERPWD, "33f4756c-d320-4b45-9c1d-21fb52d56c15:p5UqhEj7gvcG");
+     curl_setopt($curl, CURLOPT_USERPWD, "33f4756c-d320-4b45-9c1d-21fb52d56c15":"p5UqhEj7gvcG");
      curl_setopt($curl, CURLOPT_URL, "https://gateway.watsonplatform.net/language-translation/api");
      curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
  

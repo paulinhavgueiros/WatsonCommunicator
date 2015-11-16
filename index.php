@@ -12,18 +12,22 @@
  	echo 'Entrei <br/>';
  	 
 	$newcurl = curl_init();
-	curl_setopt($newcurl, CURLOPT_URL, "https://gateway.watsonplatform.net/language-translation/api/v2/translate?source=en&target=es&text=hello");
+	curl_setopt($newcurl, CURLOPT_URL, "https://gateway.watsonplatform.net/language-translation/api/v2/translate?source=en&target=es&text=handbag");
 	curl_setopt($newcurl, CURLOPT_USERPWD, "33f4756c-d320-4b45-9c1d-21fb52d56c15:p5UqhEj7gvcG");
-	echo 'palavra teste 1';
+	echo 'palavra teste 1 <br/>';
 	$finalstr = curl_exec($newcurl);
-	echo 'palavra teste 2';
+	echo 'palavra teste 2 <br/>';
 	
 	$decoded = json_decode($finalstr, true);
      echo "decoded:" . $decoded . '<br/>';
      
-     echo 'word count eh ' . $finalstr[0] . '<br/>';
-     echo 'char count eh ' . $finalstr[1] . '<br/>';
-     echo 'translation eh ' . $finalstr[2] . '<br/>';
+     echo 'word0 count eh ' . $finalstr["0"] . '<br/>';
+     echo 'char1 count eh ' . $finalstr["1"] . '<br/>';
+     
+     echo 'word count eh ' . $finalstr["word_count"] . '<br/>';
+     echo 'char count eh ' . $finalstr["character_count"] . '<br/>';
+     echo 'translation eh ' . $finalstr["translation"] . '<br/>';
+     echo 'translation de novo eh ' . $finalstr["translations"] . '<br/>';
      
      return $finalstr;
     

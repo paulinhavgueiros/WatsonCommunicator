@@ -16,8 +16,10 @@
          'source' => 'en',
          'target' => 'es'
      );
+     
+     var_dump();
  	 
-	$newcurl = curl_init();
+	$newcurl = curl_init($post_args);
 	
 	curl_setopt($newcurl, CURLOPT_POST, true);
     curl_setopt($newcurl, CURLOPT_POSTFIELDS, $post_args);

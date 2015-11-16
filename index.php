@@ -15,8 +15,16 @@
 	curl_setopt($newcurl, CURLOPT_URL, "https://gateway.watsonplatform.net/language-translation/api/v2/translate?source=en&target=es&text=hello");
 	curl_setopt($newcurl, CURLOPT_USERPWD, "33f4756c-d320-4b45-9c1d-21fb52d56c15:p5UqhEj7gvcG");
 	$finalstr = curl_exec($newcurl);
+	
+	$decoded = json_decode($finalstr, true);
+     echo "decoded:" . $decoded . '<br/>';
+     
+     return $decoded;
+    
+    
+	/*$finalstr = $json["translations"];
 	echo 'final string is ' . $finalstr . '<br/>';
-	curl_close($newcurl);
+	curl_close($newcurl);*/
  	
      /*$curl = curl_init();
      
@@ -53,8 +61,6 @@
      echo "decoded:" . $decoded . '<br/>';
      
      return $decoded; */
-    
-    return $finalstr;
  }
  // define variables and set to empty values
  $textLID = "";

@@ -12,7 +12,7 @@
  	echo 'Entrei <br/>';
  	
  	$post_args = array(
-         'text' => "Hello World",
+         'text' => 'Hello World',
          'source' => 'en',
          'target' => 'es'
      );
@@ -33,9 +33,8 @@
 	echo 'palavra teste 2 <br/>';
 	curl_close($newcurl);
 	
-	//$decoded = json_decode($finalstr, true);
-	var_dump(json_decode($finalstr, true));
-	echo 'palavra eh ' . $finalstr . '<br/>';
+	echo 'var dump na final string <br/>';
+	var_dump($finalstr, true);
      
      /*echo "decoded:" . $decoded . '<br/>';
      

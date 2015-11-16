@@ -21,9 +21,9 @@
 	$decoded = json_decode($finalstr, true);
      echo "decoded:" . $decoded . '<br/>';
      
-     echo 'word count eh ' . $finalstr["word_count"];
-     echo 'char count eh ' . $finalstr["character_count"];
-     echo 'translation eh ' . $finalstr["translations"];
+     echo 'word count eh ' . $finalstr[0] . '<br/>';
+     echo 'char count eh ' . $finalstr[1] . '<br/>';
+     echo 'translation eh ' . $finalstr[2] . '<br/>';
      
      return $finalstr;
     

@@ -9,7 +9,11 @@
  
  <?php
  function testLangID($data) {
+ 	echo 'Entrei <br/>';
+ 	
      $curl = curl_init();
+     
+     echo 'Curl init success <br/>';
      
      $post_args = array(
          'txt' => $data,
@@ -17,18 +21,31 @@
          'rt' => 'json' 
      );
      
+     echo 'Post args array success <br/>';
+     
      curl_setopt($curl, CURLOPT_POST, true);
+     echo 'Set 1 success <br/>';
      curl_setopt($curl, CURLOPT_POSTFIELDS, $post_args);
+     echo 'Set 2 success <br/>';
      curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+     echo 'Set 3 success <br/>';
      curl_setopt($curl, CURLOPT_USERPWD, "33f4756c-d320-4b45-9c1d-21fb52d56c15:p5UqhEj7gvcG");
+     echo 'Set 4 success <br/>';
      curl_setopt($curl, CURLOPT_URL, "https://gateway.watsonplatform.net/language-translation/api");
+     echo 'Set 5 success <br/>';
      curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
  
+ 	echo 'Curl sets success <br/>';
+ 
      $result = curl_exec($curl);
+     echo "resultado:" . $result;
      
      curl_close($curl);
      
+     echo 'Curl close success <br/>';
+     
      $decoded = json_decode($result, true);
+     echo "decoded:" . $decoded;
      
      return $decoded;
  }
@@ -49,7 +66,6 @@
  }
  
 
- 
  function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);

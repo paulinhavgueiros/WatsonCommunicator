@@ -20,7 +20,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>PHP MySQL Sample Application</title>
+    <title>Creating new Table</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -37,12 +37,12 @@ if ($mysqli->query($sqlTable)) {
 echo "Executing CREATE TABLE Query...<br>";
 $sqlTable="
 CREATE TABLE FEEDBACK_TABLE (
- ID int NOT NULL AUTO_INCREMENT=1,
+ ID bigint(20) NOT NULL AUTO_INCREMENT,
  NAME varchar(255) DEFAULT NULL,
  MESSAGE varchar(255) DEFAULT NULL,
  TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
  PRIMARY KEY (ID)
-)
+) DEFAULT CHARSET=utf8
 ";
 
 if ($mysqli->query($sqlTable)) {

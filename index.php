@@ -14,10 +14,17 @@
 	$newcurl = curl_init();
 	curl_setopt($newcurl, CURLOPT_URL, "https://gateway.watsonplatform.net/language-translation/api/v2/translate?source=en&target=es&text=hello");
 	curl_setopt($newcurl, CURLOPT_USERPWD, "33f4756c-d320-4b45-9c1d-21fb52d56c15:p5UqhEj7gvcG");
+	echo 'palavra teste 1';
+	
 	$finalstr = curl_exec($newcurl);
+	echo 'palavra teste 2';
 	
 	$decoded = json_decode($finalstr, true);
      echo "decoded:" . $decoded . '<br/>';
+     
+     echo 'word count eh ' . $finalstr["word_count"];
+     echo 'char count eh ' . $finalstr["character_count"]:
+     echo 'translation eh ' . $finalstr["translations"]:
      
      return $decoded;
     

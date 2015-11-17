@@ -58,8 +58,18 @@
 	</div>
     
     <div class="section" id="sectionAbout">
-    	<h2>About Watson Communicator</h2>
-        <p>Insert description here.</p>
+<h2>About Watson Communicator</h2>
+    	
+        <p>Watson Communicator is a service that allows you to translate text from predefined languages and store your 
+        translation searches.  You may use words or even small paragraphs, up to 250 characters.</p>
+        
+        <p>The Communicator uses the <a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/language-translation/api/v2/#introduction" target="_blank">Watson Language Translation API</a>.</p>
+        
+        <p>The current version of the service allows you to choose from English, French, Spanish and Portuguese in your translation schemes.</p>
+        
+        <p>After translating, you may chose to store your search into the database for future appreciation.</p>
+        
+        <p>Start by scrolling down to the Communicator Translation Service!  Good luck!</p>
     </div>
     
     <div id="bg2" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
@@ -83,7 +93,7 @@
 						Text:
 					</td>
 					<td style="width: 20%" rowspan="2">
-						<textarea name="originalText" rows="5" cols="40" maxlength="200"><?php echo $originalText;?></textarea>
+						<textarea name="originalText" rows="5" cols="40" maxlength="250"><?php echo $originalText;?></textarea>
 					</td>
 					<td style="width: 10%" rowspan="2">
 						<input type="submit" class="submit" name="translate" value="Translate" />
@@ -118,7 +128,7 @@
 						Translation:
 					</td>
 					<td style="width: 20%" rowspan="2">
-						<textarea name="translatedText" rows="5" cols="40" maxlength="200"><?php echo $translation; ?></textarea>
+						<textarea name="translatedText" rows="5" cols="40" maxlength="250"><?php echo $translation; ?></textarea>
 					</td>
 					<td style="width: 10%" rowspan="2">
 						<input type="submit" class="submit" name="store" value="Store in Table" />

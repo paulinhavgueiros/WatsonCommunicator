@@ -240,7 +240,7 @@ h1#navigationTitle::first-letter {
 	float: right;
 }
 
-.footerLeft a {
+.footerLeft a, .section a {
 	color: #249dc5;
 }
 

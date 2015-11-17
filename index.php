@@ -42,34 +42,71 @@
     <div class="section">
 
 		<h2>Communicator Translation Service</h2>
-		<p>Description</p>
+		<p>Input your name, source language, target language, and text for translation.</p>
 		
-		<table>
-			<tr>
-				<td style='width: 30%;'><img class = 'newappIcon' src='images/newapp-icon.png'>
-				</td>
-				<td>
-					<h2>Watson Language Identification</h2>
-					<p><span class="error">* required field.</span></p>
-					<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-						Enter text to identify language: <textarea name="textLID" rows="5" cols="40"><?php echo $textLID;?></textarea>
-	                       
-						<span class="error">* <?php echo $textLIDErr;?></span>
-	                       
-						<input type="submit" name="translate" value="Translate">
-						
-						<textarea name="feedback" rows="5" cols="40">
+		<form method="post" id="translationForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+		
+			<table id="translationTable"><form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+				<tr>
+					<td style="width: 10%">
+						Name:
+					</td>
+					<td style="width: 20%">
+						<input type = "text" style = "width: 80%" name = "name"></input>
+					</td>
+					<td style="width: 10%">
+						Text:
+					</td>
+					<td style="width: 20%" rowspan="2">
+						<textarea name="feedback" rows="5" cols="40"><?php echo $textLID;?></textarea>
+					</td>
+					<td style="width: 10%">
+						<input type="submit" name="translate" value="Translate" />
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 10%">
+						Source:
+					</td>
+					<td style="width: 20%">
+						<select name="srcLang" form="translationForm">
+							<option value="en">English</option>
+							<option value="fr">French</option>
+							<option value="ptbr">Portuguese</option>
+							<option value="es">Spanish</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 10%">
+						Target:
+					</td>
+					<td style="width: 20%">
+						<select name="tgtLang" form="translationForm">
+							<option value="en">English</option>
+							<option value="fr">French</option>
+							<option value="ptbr">Portuguese</option>
+							<option value="es">Spanish</option>
+						</select>
+					</td>
+					<td style="width: 10%">
+						Translation:
+					</td>
+					<td style="width: 20%" rowspan="2">
+						<textarea name="translatedText" rows="5" cols="40">
 						<?php
-						echo "<h2>Translation: </h2>";
-						echo $translation;
+							echo $translation; 
 						?>
 						</textarea>
-					</form>
-				</td>
-			</tr>
-		</table>
-
+					</td>
+					<td style="width: 10%">
+						<input type="submit" name="insert" value="Store in Table" />
+					</td>
+				</tr>
+			</table>		
+		</form>
     </div>
+    
     
     <div id="bg3" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
     

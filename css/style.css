@@ -195,3 +195,18 @@ h1#navigationTitle::first-letter {
     margin: 40px 60px;
 }
 
+table#translationTable {
+	width: 70%;
+	margin: 0 auto;
+	padding: 5px;
+	vertical-align: middle;
+	text-align: left;
+}
+
+
+
+
+
+
+
+

@@ -3,7 +3,6 @@
 // global variables
 $textLID = "";
 $textLIDErr = "";
-$textLang = "";
 $translation = "";
 $name = "";
 
@@ -18,7 +17,6 @@ function testLangID($data, $srcLang, $tgtLang) {
 	//var_dump($post_args);
  	 
 	$newcurl = curl_init();
-	curl_setopt($newcurl, CURLOPT_URL, "https://gateway.watsonplatform.net/language-translation/api/v2/translate?source=en&target=es&text=handbag");
 	curl_setopt($newcurl, CURLOPT_POST, true);
     curl_setopt($newcurl, CURLOPT_POSTFIELDS, $post_args);
 	curl_setopt($newcurl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
@@ -48,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 	if (isset($_POST["store"])) {
 		
 		// inserting into database
-		if (empty($_POST["name"]) || empty($_POST["textLID"]) || empty($_POST["name"])) {
+		if (empty($_POST["name"]) || empty($_POST["textLID"]) || empty($_POST["translatedText"])) {
 			$textLIDErr = "Please fill in Name and Translate text.";
 	    } else {
 	    	$cleaned_name = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["name"]);

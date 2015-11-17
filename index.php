@@ -1,4 +1,4 @@
-<?php include 'db.php';?>
+<?php include 'mysql.php';?>
 <?php include 'feed.php';?>
 
 <!DOCTYPE html>
@@ -157,14 +157,14 @@
 				}
 				echo "</tr>\n";
 
-				mysqli_data_seek ( $result, 0 );
-				if($result->num_rows == 0){ //nothing in the table
-							echo '<td>Empty!</td>';
+				mysqli_data_seek ($result, 0);
+				if ($result->num_rows == 0) { //nothing in the table
+					echo '<td>Empty!</td>';
 				}
 				
-				while ( $row = mysqli_fetch_row ( $result ) ) {
+				while ($row = mysqli_fetch_row ($result)) {
 					echo "<tr>\n";
-					for($i = 1; $i < mysqli_num_fields ( $result ); $i ++) {
+					for ($i = 1; $i < mysqli_num_fields ($result); $i ++) {
 						echo '<td>' . "$row[$i]" . '</td>';
 					}
 					echo "</tr>\n";

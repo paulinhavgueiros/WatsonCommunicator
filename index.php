@@ -136,7 +136,11 @@
 				echo "<tr>\n";
 				while ($property = mysqli_fetch_field($result)) {
 					if ($property->name != "ID") {
-						echo '<th>' .  $property->name . "</th>\n"; //the headings
+						$size = '0';
+						if ($property->name == "NAME" || $property->name == "TIME") $size = '10';
+						else $size = '20';
+						
+						echo '<th style="width: ' . $size . '%">' .  $property->name . "</th>\n"; //the headings
 					}
 				}
 				echo "</tr>\n";

@@ -65,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 	    } else {
 	    	//echo '<body> tem coisa <br/></body>'
 	      	$textLID = test_input($_POST["textLID"]);
+	      	echo $textLID;
 	      	$srcLang = $_POST['srcLang'];
 	      	$tgtLang = $_POST['tgtLang'];
 	       	$translation = testLangID($textLID, $srcLang, $tgtLang);

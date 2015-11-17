@@ -57,12 +57,14 @@
 						<span class="error">* <?php echo $textLIDErr;?></span>
 	                       
 						<input type="submit" name="translate" value="Translate">
+						
+						<textarea name="feedback" rows="5" cols="40">
+						<?php
+						echo "<h2>Translation: </h2>";
+						echo $translation;
+						?>
+						</textarea>
 					</form>
-	             
-					<?php
-					echo "<h2>Translation: </h2>";
-					echo $translation;
-					?>
 				</td>
 			</tr>
 		</table>

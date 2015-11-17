@@ -5,8 +5,8 @@ $textLID = "";
 $textLIDErr = "";
 $textLang = "";
 $translation = "";
-$srcLang = "";
-$tgtLang = "";
+$name = "";
+
 
 function testLangID($data, $srcLang, $tgtLang) {
 	$post_args = array(
@@ -48,15 +48,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 	if (isset($_POST["store"])) {
 		
 		// inserting into database
-		$cleaned_name = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["name"]);
-	    $cleaned_translation = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["translatedText"]);
-	    $strsq0 = "INSERT INTO FEEDBACK_TABLE (NAME, FEEDBACK) VALUES ('" . $cleaned_name . "', '" . $cleaned_translation . "');"; //new feedback
-	    if ($mysqli->query($strsq0)) {
-	        //echo "Insert success!";
+		if (empty($_POST["textLID"]) || empty($_POST["name"])) {
+			//echo '<body> ta vazio <br/></body>'
+			$textLIDErr = "Fill in name and Translate text first.";
 	    } else {
-	        echo "Cannot insert into the data table; check whether the table is created, or the database is active. "  . mysqli_error();
-	    }
-		
+	    	$cleaned_name = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["name"]);
+		    $cleaned_translation = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["translatedText"]);
+		    $strsq0 = "INSERT INTO FEEDBACK_TABLE (NAME, FEEDBACK) VALUES ('" . $cleaned_name . "', '" . $cleaned_translation . "');"; //new feedback
+		    if ($mysqli->query($strsq0)) {
+		        //echo "Insert success!";
+		    } else {
+		        echo "Cannot insert into the data table; check whether the table is created, or the database is active. "  . mysqli_error();
+		    }
+    	}
+
 	} else if (isset($_POST["translate"])) {
 		
 		//echo '<body> to traduzindo <br/></body>'
@@ -67,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 	    } else {
 	    	//echo '<body> tem coisa <br/></body>'
 	      	$textLID = test_input($_POST["textLID"]);
+	      	$name = test_input($_POST["name"]);
 	      	$srcLang = $_POST['srcLang'];
 	      	$tgtLang = $_POST['tgtLang'];
 	       	$translation = testLangID($textLID, $srcLang, $tgtLang);

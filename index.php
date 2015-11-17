@@ -18,27 +18,17 @@
     <script src="js/jquery.nicescroll.js"></script>
     <script src="js/jquery.cookie.js"></script>
     <script src="index.js"></script>
+    
     <script type="text/javascript">
-// When document is ready...
-$(document).ready(function() {
-	window.alert("Oi");
-
-    // If cookie is set, scroll to the position saved in the cookie.
-    if ( $.cookie("scroll") !== null ) {
-        $(document).scrollTop( $.cookie("scroll") );
-    }
-
-    // When a button is clicked...
-    $('.submit').on("click", function() {
-    	
-    	window.alert("Dentro");
-
-        // Set a cookie that holds the scroll position.
-        $.cookie("scroll", $(document).scrollTop() );
-
-    });
-
-});
+		$(document).ready(function() {
+			if ( $.cookie("scroll") !== null ) { // scroll back to position
+		        $(document).scrollTop($.cookie("scroll"));
+		    }
+		
+		    $('.submit').on("click", function() { // called when a button is clicked
+		        $.cookie("scroll", $(document).scrollTop()); // update scroll position
+		    });
+		});
     </script>
     
 </head>
@@ -75,7 +65,7 @@ $(document).ready(function() {
 						Name:
 					</td>
 					<td style="width: 20%">
-						<input type = "text" style = "width: 80%" name = "name"></input>
+						<input type = "text" style = "width: 80%" name = "name"><?php echo $name;?></input>
 					</td>
 					<td style="width: 10%">
 						Text:
@@ -122,6 +112,7 @@ $(document).ready(function() {
 						<input type="submit" class="submit" name="store" value="Store in Table" />
 					</td>
 				</tr>
+				<tr><td colspan="5"><span class="error">* <?php echo $textLIDErr;?></span></td></tr>
 			</table>		
 		</form>
     </div>
@@ -135,7 +126,7 @@ $(document).ready(function() {
         
         <p>
         	Description<br/>
-			<input type="button" class = "button" onclick="window.location = 'init.php';" value="Reset table"></input></br>
+			<input type="button" class = "submit" onclick="window.location = 'init.php';" value="Reset table"></input></br>
 		</p>
 
 		<table id='feedbackTable'><tbody>
@@ -165,17 +156,6 @@ $(document).ready(function() {
 				$result->close();
 				mysqli_close();
 			?>
-			<tr>
-				<form method = "POST">
-					<td colspan = "2">
-					<input type = "text" style = "width:100%" name = "name"></input>
-					</td>
-				
-					<td>
-					<textarea name="feedback" rows="5" cols="40"></textarea>
-					</td>
-				</form>
-			</tr>
 		</tbody></table>
 
     </div>

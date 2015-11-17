@@ -58,9 +58,9 @@
 						Text:
 					</td>
 					<td style="width: 20%" rowspan="2">
-						<textarea name="feedback" rows="5" cols="40"><?php echo $textLID;?></textarea>
+						<textarea name="textLID" rows="5" cols="40"><?php echo $textLID;?></textarea>
 					</td>
-					<td style="width: 10%">
+					<td style="width: 10%" rowspan="2">
 						<input type="submit" name="translate" value="Translate" />
 					</td>
 				</tr>

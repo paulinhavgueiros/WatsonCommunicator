@@ -133,7 +133,7 @@ h1#navigationTitle::first-letter {
 }
 
 .backgroundImage {
-    height: 600px;
+    height: 500px;
     width: 100%;
     background: white;
     z-index: 10;
@@ -141,7 +141,7 @@ h1#navigationTitle::first-letter {
 
 #bg1 {
 	padding-top: 350px;
-	height: 600px;
+	height: 500px;
     width: 100%;
     z-index: 10;
     background: url(../images/backgroundBlue.jpg) repeat;
@@ -179,6 +179,7 @@ h1#navigationTitle::first-letter {
     width:100%;
     background: white;
     z-index: 20;
+    min-height: 500px;
 }
 
 .section h2 {
@@ -195,7 +196,7 @@ h1#navigationTitle::first-letter {
     margin: 40px 60px;
 }
 
-table#translationTable {
+.table {
 	width: 70%;
 	margin: 0 auto;
 	padding: 5px;

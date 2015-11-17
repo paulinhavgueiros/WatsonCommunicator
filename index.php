@@ -59,7 +59,7 @@
 		
 		<form method="post" id="translationForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 		
-			<table id="translationTable"><form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+			<table id="translationTable" class="table"><form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				<tr>
 					<td style="width: 10%">
 						Name:
@@ -113,7 +113,7 @@
 					</td>
 				</tr>
 				<tr></tr>
-				<tr><td colspan="5"><span class="error">* <?php echo $textLIDErr;?></span></td></tr>
+				<tr><td colspan="5"><span class="error"><?php echo $textLIDErr;?></span></td></tr>
 			</table>		
 		</form>
     </div>
@@ -130,7 +130,7 @@
 			<input type="button" class = "submit" onclick="window.location = 'init.php';" value="Reset table"></input></br>
 		</p>
 
-		<table id='feedbackTable'><tbody>
+		<table id="feedbackTable" class="table"><tbody>
 		
 			<?php
 				echo "<tr>\n";

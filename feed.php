@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 	      	$srcLang = $_POST["srcLang"]);
 	      	$tgtLang = $_POST["tgtLang"]);
 	      	//echo "Meu texto eh" . $textLID;
-	       	$translation = testLangID($textLID $srcLang, $tgtLang);
+	       	$translation = testLangID($textLID, $srcLang, $tgtLang);
 	 		//echo "Traducao: " . $translation;
     	}
     	

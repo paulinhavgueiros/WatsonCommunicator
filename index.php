@@ -17,6 +17,25 @@
     <script src="js/script.js"></script>
     <script src="js/jquery.nicescroll.js"></script>
     <script src="index.js"></script>
+    <script type="text/javascript">
+		$(document).ready(function() {
+			window.alert("Oi");
+		
+		    // If cookie is set, scroll to the position saved in the cookie.
+		    if ( $.cookie("scroll") !== null ) {
+		        $(document).scrollTop( $.cookie("scroll") );
+		    }
+		
+		    // When scrolling happens....
+		    $(window).on("scroll", function() {
+		
+		        // Set a cookie that holds the scroll position.
+		        $.cookie("scroll", $(document).scrollTop() );
+		
+		    });
+		
+		});
+    </script>
     
 </head>
 <body>
@@ -58,7 +77,7 @@
 						Text:
 					</td>
 					<td style="width: 20%" rowspan="2">
-						<textarea name="textLID" rows="5" cols="40"><?php echo $textLID;?></textarea>
+						<textarea name="textLID" rows="5" cols="40" maxlength="200"><?php echo $textLID;?></textarea>
 					</td>
 					<td style="width: 10%" rowspan="2">
 						<input type="submit" name="translate" value="Translate" />
@@ -93,7 +112,7 @@
 						Translation:
 					</td>
 					<td style="width: 20%" rowspan="2">
-						<textarea name="translatedText" rows="5" cols="40"><?php echo $translation; ?></textarea>
+						<textarea name="translatedText" rows="5" cols="40" maxlength="200"><?php echo $translation; ?></textarea>
 					</td>
 					<td style="width: 10%">
 						<input type="submit" name="store" value="Store in Table" />
@@ -108,7 +127,7 @@
     
     <div class="section">
     
-        <h2>Título da tabela</h2>
+        <h2>Translated Area</h2>
         
         <p>
         	Description<br/>

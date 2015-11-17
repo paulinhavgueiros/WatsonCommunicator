@@ -1,8 +1,8 @@
 <?php
 
 // global variables
-$textLID = "";
-$textLIDErr = "";
+$originalText = "";
+$originalTextErr = "";
 $translation = "";
 $name = "";
 
@@ -46,11 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 	if (isset($_POST["store"])) {
 		
 		// inserting into database
-		if (empty($_POST["name"]) || empty($_POST["textLID"]) || empty($_POST["translatedText"])) {
-			$textLIDErr = "Please fill in Name and Translate text.";
+		if (empty($_POST["name"]) || empty($_POST["originalText"]) || empty($_POST["translatedText"])) {
+			$originalTextErr = "Please fill in Name and Translate text.";
 	    } else {
 	    	$cleaned_name = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["name"]);
-	    	$cleaned_text = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["textLID"]);
+	    	$cleaned_text = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["originalText"]);
 		    $cleaned_translation = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["translatedText"]);
 		    $strsq0 = "INSERT INTO TEXT_TABLE (NAME, ORIGINAL_TEXT, TRANSLATED_TEXT) VALUES ('" . $cleaned_name . "', '" . $cleaned_text . "', '" . $cleaned_translation . "');"; //new feedback
 		    if ($mysqli->query($strsq0)) {
@@ -64,16 +64,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 		
 		//echo '<body> to traduzindo <br/></body>'
 		// translating text
-		if (empty($_POST["textLID"])) {
+		if (empty($_POST["originalText"])) {
 			//echo '<body> ta vazio <br/></body>'
-			$textLIDErr = "Text is required (at least 3 words)";
+			$originalTextErr = "Text is required (at least 3 words)";
 	    } else {
 	    	//echo '<body> tem coisa <br/></body>'
-	      	$textLID = test_input($_POST["textLID"]);
+	      	$originalText = test_input($_POST["originalText"]);
 	      	$name = test_input($_POST["name"]);
 	      	$srcLang = $_POST['srcLang'];
 	      	$tgtLang = $_POST['tgtLang'];
-	       	$translation = testLangID($textLID, $srcLang, $tgtLang);
+	       	$translation = testLangID($originalText, $srcLang, $tgtLang);
 	 		//echo "Traducao: " . $translation;
     	}
     	
@@ -85,11 +85,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 
 //Query the DB for feedbacks
 $strsql = "select * from TEXT_TABLE ORDER BY ID DESC limit 100";
-if ($result = $mysqli->query($strsql)) {
-   // printf("<br>Select returned %d rows.\n", $result->num_rows);
+if ($queryRes = $mysqli->query($strsql)) {
+   // There are results
 } else {
-	//Could be many reasons, but most likely the table isn't created yet. init.php will create the table.
-	echo "<b>Can't query the database, did you <a href = init.php>Create the table</a> yet?</b>";
+	// No results found
+	echo "<b>Please <a href = init.php>Create table</a> first.</b>";
 }
 
     

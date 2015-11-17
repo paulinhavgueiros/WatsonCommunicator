@@ -83,7 +83,7 @@
 						Text:
 					</td>
 					<td style="width: 20%" rowspan="2">
-						<textarea name="textLID" rows="5" cols="40" maxlength="200"><?php echo $textLID;?></textarea>
+						<textarea name="originalText" rows="5" cols="40" maxlength="200"><?php echo $originalText;?></textarea>
 					</td>
 					<td style="width: 10%" rowspan="2">
 						<input type="submit" class="submit" name="translate" value="Translate" />
@@ -125,7 +125,7 @@
 					</td>
 				</tr>
 				<tr><td></td><td></td></tr>
-				<tr><td colspan="5"><span class="error"><?php echo $textLIDErr;?></span></td></tr>
+				<tr><td colspan="5"><span class="error"><?php echo $originalTextErr;?></span></td></tr>
 			</table>		
 		</form>
     </div>
@@ -146,7 +146,7 @@
 		
 			<?php
 				echo "<tr>\n";
-				while ($property = mysqli_fetch_field($result)) {
+				while ($property = mysqli_fetch_field($queryRes)) {
 					if ($property->name != "ID") {
 						$size = '0';
 						if ($property->name == "NAME" || $property->name == "TIME") $size = '10';
@@ -157,20 +157,20 @@
 				}
 				echo "</tr>\n";
 
-				mysqli_data_seek ($result, 0);
-				if ($result->num_rows == 0) { //nothing in the table
+				mysqli_data_seek ($queryRes, 0);
+				if ($queryRes->num_rows == 0) { //nothing in the table
 					echo '<td>Empty!</td>';
 				}
 				
-				while ($row = mysqli_fetch_row ($result)) {
+				while ($row = mysqli_fetch_row ($queryRes)) {
 					echo "<tr>\n";
-					for ($i = 1; $i < mysqli_num_fields ($result); $i ++) {
+					for ($i = 1; $i < mysqli_num_fields ($queryRes); $i ++) {
 						echo '<td>' . "$row[$i]" . '</td>';
 					}
 					echo "</tr>\n";
 				}
 
-				$result->close();
+				$queryRes->close();
 				mysqli_close();
 			?>
 		</tbody></table>

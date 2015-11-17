@@ -46,7 +46,7 @@
 	</div>
     
     <div class="section">
-    	<h2>Watson Communicator</h2>
+    	<h2>About Watson Communicator</h2>
         <p>Insert description here.</p>
     </div>
     
@@ -65,7 +65,7 @@
 						Name:
 					</td>
 					<td style="width: 20%">
-						<input type = "text" style = "width: 80%" name = "name"><?php echo $name;?></input>
+						<input type = "text" style = "width: 80%" name = "name" value="{$name}"></input>
 					</td>
 					<td style="width: 10%">
 						Text:

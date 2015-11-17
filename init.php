@@ -26,20 +26,21 @@
 
 <?php
 
-$sqlTable="DROP TABLE IF EXISTS FEEDBACK_TABLE";
+$sqlTable="DROP TABLE IF EXISTS TEXT_TABLE";
 if ($mysqli->query($sqlTable)) {
-    echo "Table dropped successfully! <br>";
+    echo "Table deleted! <br>";
 } else {
 	//echo "Cannot drop table. "  . mysqli_error();
 }
 
 
-echo "Executing CREATE TABLE Query...<br>";
+echo "Creating table...<br />";
 $sqlTable="
-CREATE TABLE FEEDBACK_TABLE (
+CREATE TABLE TEXT_TABLE (
  ID bigint(20) NOT NULL AUTO_INCREMENT,
  NAME varchar(255) DEFAULT NULL,
- FEEDBACK varchar(255) DEFAULT NULL,
+ ORIGINAL_TEXT varchar(255) DEFAULT NULL,
+ TRANSLATED_TEXT varchar(255) DEFAULT NULL,
  TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
  PRIMARY KEY (ID)
 ) DEFAULT CHARSET=utf8

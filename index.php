@@ -123,7 +123,7 @@
     
     <div class="section">
     
-        <h2>Translated Area</h2>
+        <h2>Translated History</h2>
         
         <p>
         	Description<br/>

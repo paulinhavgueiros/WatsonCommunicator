@@ -48,13 +48,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 	if (isset($_POST["store"])) {
 		
 		// inserting into database
-		if (empty($_POST["textLID"]) || empty($_POST["name"])) {
-			//echo '<body> ta vazio <br/></body>'
-			$textLIDErr = "Fill in name and Translate text first.";
+		if (empty($_POST["name"]) || empty($_POST["textLID"]) || empty($_POST["name"])) {
+			$textLIDErr = "Please fill in Name and Translate text.";
 	    } else {
 	    	$cleaned_name = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["name"]);
+	    	$cleaned_text = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["textLID"]);
 		    $cleaned_translation = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["translatedText"]);
-		    $strsq0 = "INSERT INTO FEEDBACK_TABLE (NAME, FEEDBACK) VALUES ('" . $cleaned_name . "', '" . $cleaned_translation . "');"; //new feedback
+		    $strsq0 = "INSERT INTO TEXT_TABLE (NAME, ORIGINAL_TEXT, TRANSLATED_TEXT) VALUES ('" . $cleaned_name . "', '" . $cleaned_text . "', '" . $cleaned_translation . "');"; //new feedback
 		    if ($mysqli->query($strsq0)) {
 		        //echo "Insert success!";
 		    } else {
@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 
 
 //Query the DB for feedbacks
-$strsql = "select * from FEEDBACK_TABLE ORDER BY ID DESC limit 100";
+$strsql = "select * from TEXT_TABLE ORDER BY ID DESC limit 100";
 if ($result = $mysqli->query($strsql)) {
    // printf("<br>Select returned %d rows.\n", $result->num_rows);
 } else {

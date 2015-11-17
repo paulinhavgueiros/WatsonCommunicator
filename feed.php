@@ -5,6 +5,8 @@ $textLID = "";
 $textLIDErr = "";
 $textLang = "";
 $translation = "";
+$srcLang = "";
+$tgtLang = "";
 
 function testLangID($data, $srcLang, $tgtLang) {
 	$post_args = array(
@@ -43,12 +45,12 @@ function testLangID($data, $srcLang, $tgtLang) {
  
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
-	if (isset($_POST["insert"])) {
+	if (isset($_POST["store"])) {
 		
 		// inserting into database
 		$cleaned_name = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["name"]);
-	    $cleaned_feedback = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["feedback"]);
-	    $strsq0 = "INSERT INTO FEEDBACK_TABLE (NAME, FEEDBACK) VALUES ('" . $cleaned_name . "', '" . $cleaned_feedback . "');"; //new feedback
+	    $cleaned_translation = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["translatedText"]);
+	    $strsq0 = "INSERT INTO FEEDBACK_TABLE (NAME, FEEDBACK) VALUES ('" . $cleaned_name . "', '" . $cleaned_translation . "');"; //new feedback
 	    if ($mysqli->query($strsq0)) {
 	        //echo "Insert success!";
 	    } else {
@@ -65,7 +67,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 	    } else {
 	    	//echo '<body> tem coisa <br/></body>'
 	      	$textLID = test_input($_POST["textLID"]);
-	      	echo $textLID;
 	      	$srcLang = $_POST['srcLang'];
 	      	$tgtLang = $_POST['tgtLang'];
 	       	$translation = testLangID($textLID, $srcLang, $tgtLang);

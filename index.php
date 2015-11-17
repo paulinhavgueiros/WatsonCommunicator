@@ -96,7 +96,7 @@
 						<textarea name="translatedText" rows="5" cols="40"><?php echo $translation; ?></textarea>
 					</td>
 					<td style="width: 10%">
-						<input type="submit" name="insert" value="Store in Table" />
+						<input type="submit" name="store" value="Store in Table" />
 					</td>
 				</tr>
 			</table>		

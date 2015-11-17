@@ -174,7 +174,7 @@
        </div>
         
         <div class="footerRight">
-        	<p>All Right Reserved</p>
+        	<p>All Rights Reserved.</p>
         </div>
 
 		<div style="float: clear;"></div>

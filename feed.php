@@ -28,8 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 	} else {
 		echo 'No button origin <br/>';
 	}
-} else {
-	echo 'No post request <br/>';
 }
 
 

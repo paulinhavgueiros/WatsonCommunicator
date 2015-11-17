@@ -29,7 +29,7 @@ $(document).ready(function() {
     }
 
     // When a button is clicked...
-    $('#submit').on("click", function() {
+    $('.submit').on("click", function() {
     	
     	window.alert("Dentro");
 

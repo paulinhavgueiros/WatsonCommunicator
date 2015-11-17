@@ -93,7 +93,11 @@
 						Translation:
 					</td>
 					<td style="width: 20%" rowspan="2">
-						<textarea name="translatedText" rows="5" cols="40"><?php echo $translation;  ?></textarea>
+						<textarea name="translatedText" rows="5" cols="40">
+						<?php
+							echo $translation; 
+						?>
+						</textarea>
 					</td>
 					<td style="width: 10%">
 						<input type="submit" name="insert" value="Store in Table" />

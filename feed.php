@@ -6,11 +6,11 @@ $textLIDErr = "";
 $textLang = "";
 $translation = "";
 
-function testLangID($data) {
+function testLangID($data, $srcLang, $tgtLang) {
 	$post_args = array(
 		'text' => $data,
-		'source' => 'en',
-		'target' => 'es'
+		'source' => $srcLang,
+		'target' => $tgtLang
 	);
      
 	//var_dump($post_args);
@@ -65,11 +65,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 	    } else {
 	    	//echo '<body> tem coisa <br/></body>'
 	      	$textLID = test_input($_POST["textLID"]);
-	      	$srcLang = $_POST["srcLang"]);
-	      	$tgtLang = $_POST["tgtLang"]);
-	      	echo "Src lang: " . $srcLang . "<br/> Tgt lang: " . $tgtLang;
-	      	
-	       	$translation = testLangID($textLID);
+	      	$srcLang = $_POST['srcLang'];
+	      	$tgtLang = $_POST['tgtLang'];
+	       	$translation = testLangID($textLID, $srcLang, $tgtLang);
 	 		//echo "Traducao: " . $translation;
     	}
     	

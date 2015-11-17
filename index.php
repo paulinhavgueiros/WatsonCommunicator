@@ -151,10 +151,6 @@
 					<td>
 					<textarea name="feedback" rows="5" cols="40"></textarea>
 					</td>
-				
-					<td>
-						<input type="submit" name="insert" value="Insert" />
-					</td> 
 				</form>
 			</tr>
 		</tbody></table>

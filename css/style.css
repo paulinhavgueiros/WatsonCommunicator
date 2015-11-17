@@ -211,7 +211,13 @@ h1#navigationTitle::first-letter {
     color: #333333;
 }
 
+#footerLeft {
+	float: left;
+}
 
+#footerRight {
+	float: right;
+}
 
 
 

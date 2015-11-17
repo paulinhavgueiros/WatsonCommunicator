@@ -168,8 +168,16 @@
     <div id="bg4" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
     
     <div id="footer" class="section">
-        <h2>Footer -> arrumar</h2>
-        <p>Insert content.</p>
+
+        <div class="footerLeft">
+			<p><a href="#bg1">Back to Top</a></p>
+       </div>
+        
+        <div class="footerRight">
+        	<p>All Right Reserved</p>
+        </div>
+
+		<div style="float: clear;"></div>
     </div>
     
 

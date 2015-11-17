@@ -29,8 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 	    } else {
 	    	//echo '<body> tem coisa <br/></body>'
 	      	$textLID = test_input($_POST["textLID"]);
+	      	$srcLang = $_POST["srcLang"]);
+	      	$tgtLang = $_POST["tgtLang"]);
 	      	//echo "Meu texto eh" . $textLID;
-	       	$translation = testLangID($textLID);
+	       	$translation = testLangID($textLID $srcLang, $tgtLang);
 	 		//echo "Traducao: " . $translation;
     	}
     	
@@ -50,11 +52,11 @@ if ($result = $mysqli->query($strsql)) {
 }
 
 
-function testLangID($data) {
+function testLangID($data, $srcLang, $tgtLang) {
 	$post_args = array(
 		'text' => $data,
-		'source' => 'en',
-		'target' => 'es'
+		'source' => $srcLang,
+		'target' => $tgtLang
 	);
      
 	//var_dump($post_args);

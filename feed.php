@@ -20,9 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 			$textLIDErr = "Text is required (at least 3 words)";
 	    } else {
 	      	$textLID = test_input($_POST["textLID"]);
-	      	echo "Meu texto eh" . $textLID;
+	      	//echo "Meu texto eh" . $textLID;
 	       	$translation = testLangID($textLID);
-	 		echo "Traducao: " . $translation;
+	 		//echo "Traducao: " . $translation;
     	}
     	
 	} else {
@@ -49,9 +49,7 @@ $translation = "";
 
 
 function testLangID($data) {
-	echo 'Entrei <br/>';
- 	
- 	$post_args = array(
+	$post_args = array(
 		'text' => $data,
 		'source' => 'en',
 		'target' => 'es'

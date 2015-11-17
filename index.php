@@ -41,10 +41,10 @@
     
     <div class="section">
 
-		<h2>Please leave us your feedback!</h2>
+		<h2>Communicator Translation Service</h2>
         <p>
         	Description<br/>
-			<input type="button" class = "mybutton" onclick="window.location = 'init.php';" class="btn" value="Reset table"></input></br>
+			<input type="button" class = "button" onclick="window.location = 'init.php';" value="Reset table"></input></br>
 		</p>
 
 		<table id='feedbackTable'><tbody>
@@ -77,7 +77,7 @@
 			<tr>
 				<form method = "POST">
 					<td colspan = "2">
-					<input type = "text" style = "width:100%" name = "name" autofocus onchange="saveChange(this)" onkeydown="onKey(event)"></input>
+					<input type = "text" style = "width:100%" name = "name"></input>
 					</td>
 				
 					<td>

@@ -29,6 +29,10 @@
 		        $.cookie("scroll", $(document).scrollTop()); // update scroll position
 		    });
 		});
+		
+    	$(window).on("hashchange", function () {
+    		window.scrollTo(window.scrollX, window.scrollY - 140);
+		});
     </script>
     
 </head>

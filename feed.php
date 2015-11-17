@@ -6,52 +6,6 @@ $textLIDErr = "";
 $textLang = "";
 $translation = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
-	if (isset($_POST["insert"])) {
-		
-		// inserting into database
-		$cleaned_name = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["name"]);
-	    $cleaned_feedback = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["feedback"]);
-	    $strsq0 = "INSERT INTO FEEDBACK_TABLE (NAME, FEEDBACK) VALUES ('" . $cleaned_name . "', '" . $cleaned_feedback . "');"; //new feedback
-	    if ($mysqli->query($strsq0)) {
-	        //echo "Insert success!";
-	    } else {
-	        echo "Cannot insert into the data table; check whether the table is created, or the database is active. "  . mysqli_error();
-	    }
-		
-	} else if (isset($_POST["translate"])) {
-		
-		//echo '<body> to traduzindo <br/></body>'
-		// translating text
-		if (empty($_POST["textLID"])) {
-			//echo '<body> ta vazio <br/></body>'
-			$textLIDErr = "Text is required (at least 3 words)";
-	    } else {
-	    	//echo '<body> tem coisa <br/></body>'
-	      	$textLID = test_input($_POST["textLID"]);
-	      	//$srcLang = $_POST["srcLang"]);
-	      	//$tgtLang = $_POST["tgtLang"]);
-	      	//echo "Meu texto eh" . $textLID;
-	       	$translation = testLangID($textLID);
-	 		//echo "Traducao: " . $translation;
-    	}
-    	
-	} else {
-		echo 'No button origin <br/>';
-	}
-}
-
-
-//Query the DB for feedbacks
-$strsql = "select * from FEEDBACK_TABLE ORDER BY ID DESC limit 100";
-if ($result = $mysqli->query($strsql)) {
-   // printf("<br>Select returned %d rows.\n", $result->num_rows);
-} else {
-	//Could be many reasons, but most likely the table isn't created yet. init.php will create the table.
-	echo "<b>Can't query the database, did you <a href = init.php>Create the table</a> yet?</b>";
-}
-
-
 function testLangID($data) {
 	$post_args = array(
 		'text' => $data,
@@ -86,7 +40,53 @@ function testLangID($data) {
     $data = htmlspecialchars($data);
     return $data;
  }
+ 
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
+	if (isset($_POST["insert"])) {
+		
+		// inserting into database
+		$cleaned_name = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["name"]);
+	    $cleaned_feedback = preg_replace('/[^a-zA-Z0-9.\s]/', '', $_POST["feedback"]);
+	    $strsq0 = "INSERT INTO FEEDBACK_TABLE (NAME, FEEDBACK) VALUES ('" . $cleaned_name . "', '" . $cleaned_feedback . "');"; //new feedback
+	    if ($mysqli->query($strsq0)) {
+	        //echo "Insert success!";
+	    } else {
+	        echo "Cannot insert into the data table; check whether the table is created, or the database is active. "  . mysqli_error();
+	    }
+		
+	} else if (isset($_POST["translate"])) {
+		
+		//echo '<body> to traduzindo <br/></body>'
+		// translating text
+		if (empty($_POST["textLID"])) {
+			//echo '<body> ta vazio <br/></body>'
+			$textLIDErr = "Text is required (at least 3 words)";
+	    } else {
+	    	//echo '<body> tem coisa <br/></body>'
+	      	$textLID = test_input($_POST["textLID"]);
+	      	$srcLang = $_POST["srcLang"]);
+	      	$tgtLang = $_POST["tgtLang"]);
+	      	echo "Src lang: " . $srcLang . "<br/> Tgt lang: " . $tgtLang;
+	      	
+	       	$translation = testLangID($textLID);
+	 		//echo "Traducao: " . $translation;
+    	}
+    	
+	} else {
+		echo 'No button origin <br/>';
+	}
+}
+
+
+//Query the DB for feedbacks
+$strsql = "select * from FEEDBACK_TABLE ORDER BY ID DESC limit 100";
+if ($result = $mysqli->query($strsql)) {
+   // printf("<br>Select returned %d rows.\n", $result->num_rows);
+} else {
+	//Could be many reasons, but most likely the table isn't created yet. init.php will create the table.
+	echo "<b>Can't query the database, did you <a href = init.php>Create the table</a> yet?</b>";
+}
 
     
 ?>

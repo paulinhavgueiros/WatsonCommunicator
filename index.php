@@ -16,25 +16,29 @@
     <script src="js/jquery.stellar.js"></script>
     <script src="js/script.js"></script>
     <script src="js/jquery.nicescroll.js"></script>
+    <script src="js/jquery.cookie.js"></script>
     <script src="index.js"></script>
     <script type="text/javascript">
-		$(document).ready(function() {
-			window.alert("Oi");
-		
-		    // If cookie is set, scroll to the position saved in the cookie.
-		    if ( $.cookie("scroll") !== null ) {
-		        $(document).scrollTop( $.cookie("scroll") );
-		    }
-		
-		    // When scrolling happens....
-		    $(window).on("scroll", function() {
-		
-		        // Set a cookie that holds the scroll position.
-		        $.cookie("scroll", $(document).scrollTop() );
-		
-		    });
-		
-		});
+// When document is ready...
+$(document).ready(function() {
+	window.alert("Oi");
+
+    // If cookie is set, scroll to the position saved in the cookie.
+    if ( $.cookie("scroll") !== null ) {
+        $(document).scrollTop( $.cookie("scroll") );
+    }
+
+    // When a button is clicked...
+    $('#submit').on("click", function() {
+    	
+    	window.alert("Dentro");
+
+        // Set a cookie that holds the scroll position.
+        $.cookie("scroll", $(document).scrollTop() );
+
+    });
+
+});
     </script>
     
 </head>
@@ -80,7 +84,7 @@
 						<textarea name="textLID" rows="5" cols="40" maxlength="200"><?php echo $textLID;?></textarea>
 					</td>
 					<td style="width: 10%" rowspan="2">
-						<input type="submit" name="translate" value="Translate" />
+						<input type="submit" class="submit" name="translate" value="Translate" />
 					</td>
 				</tr>
 				<tr>
@@ -115,7 +119,7 @@
 						<textarea name="translatedText" rows="5" cols="40" maxlength="200"><?php echo $translation; ?></textarea>
 					</td>
 					<td style="width: 10%">
-						<input type="submit" name="store" value="Store in Table" />
+						<input type="submit" class="submit" name="store" value="Store in Table" />
 					</td>
 				</tr>
 			</table>		

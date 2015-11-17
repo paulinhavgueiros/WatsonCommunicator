@@ -60,16 +60,16 @@
     <div class="section" id="sectionAbout">
 <h2>About Watson Communicator</h2>
     	
-        <p>Watson Communicator is a service that allows you to translate text from predefined languages and store your 
-        translation searches.  You may use words or even small paragraphs, up to 250 characters.</p>
+        <p>Watson Communicator is a service that allows you to translate text from predefined languages, and store your 
+        translation searches.  You may use words, or even small paragraphs, up to 250 characters.</p>
         
         <p>The Communicator uses the <a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/language-translation/api/v2/#introduction" target="_blank">Watson Language Translation API</a>.</p>
         
         <p>The current version of the service allows you to choose from English, French, Spanish and Portuguese in your translation schemes.</p>
         
-        <p>After translating, you may chose to store your search into the database for future appreciation.</p>
+        <p>After translating, you may choose to store your search into the database for future appreciation.</p>
         
-        <p>Start by scrolling down to the Communicator Translation Service!  Good luck!</p>
+        <p>Start by scrolling down to the <a href="#sectionTranslation">Communicator Translation Service!</a>  Good luck!</p>
     </div>
     
     <div id="bg2" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
@@ -145,7 +145,7 @@
     
     <div class="section" id="sectionHistory">
     
-        <h2>Translated History</h2>
+        <h2>Translation History</h2>
         
         <p>
         	Description<br/>

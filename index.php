@@ -37,6 +37,14 @@
 	<div id="navigationBar">
 		 <div class="navigationItem"><img src="images/newapp-icon.png"></div>
 		 <div class="navigationItem"><h1 id="navigationTitle">WatsonCommunicator</h1></div>
+		 
+		 <div class="navigationRight">
+		 	<ul>
+		 		<li class="navigationRightItem"><a href="#sectionAbout">About</a></li>
+		 		<li class="navigationRightItem"><a href="#sectionTranslation">Translation Service</a></li>
+		 		<li class="navigationRightItem"><a href="#sectionHistory">History</a></li>
+		 	</ul>
+		 </div>
 	</div>
 	
 	<div id="bg1" data-stellar-background-ratio="0.5">
@@ -45,14 +53,14 @@
     	</div>
 	</div>
     
-    <div class="section">
+    <div class="section" id="sectionAbout">
     	<h2>About Watson Communicator</h2>
         <p>Insert description here.</p>
     </div>
     
     <div id="bg2" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
     
-    <div class="section">
+    <div class="section" id="sectionTranslation">
 
 		<h2>Communicator Translation Service</h2>
 		<p>Input your name, source language, target language, and text for translation.</p>
@@ -121,7 +129,7 @@
     
     <div id="bg3" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
     
-    <div class="section">
+    <div class="section" id="sectionHistory">
     
         <h2>Translated History</h2>
         
@@ -166,7 +174,7 @@
     </div>
     
     <div id="bg4" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
-    
+
     <div id="footer" class="section">
 
         <div class="footerLeft">

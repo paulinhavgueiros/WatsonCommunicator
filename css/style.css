@@ -120,6 +120,26 @@ pre {
     height: 100%;
 }
 
+.navigationRight {
+	float: right;
+	height: 80px;
+	line-height: 80px;
+	vertical-align: middle;
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-right: 80px;
+}
+
+li.navigationRightItem {
+	display: inline;
+	margin: 15px;
+	text-transform: uppercase;
+}
+
+li.navigationRightItem a {
+	color: #555555;
+}
+
 h1#navigationTitle {
     color: #555555;
     font-size: 35px;
@@ -220,6 +240,17 @@ h1#navigationTitle::first-letter {
 	float: right;
 }
 
+.footerLeft a {
+	color: #249dc5;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+}
 
 
 

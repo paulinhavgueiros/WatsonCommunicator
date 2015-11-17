@@ -42,6 +42,39 @@
     <div class="section">
 
 		<h2>Communicator Translation Service</h2>
+		<p>Description</p>
+		
+		<table>
+			<tr>
+				<td style='width: 30%;'><img class = 'newappIcon' src='images/newapp-icon.png'>
+				</td>
+				<td>
+					<h2>Watson Language Identification</h2>
+					<p><span class="error">* required field.</span></p>
+					<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+						Enter text to identify language: <textarea name="textLID" rows="5" cols="40"><?php echo $textLID;?></textarea>
+	                       
+						<span class="error">* <?php echo $textLIDErr;?></span>
+	                       
+						<input type="submit" name="translate" value="Translate">
+					</form>
+	             
+					<?php
+					echo "<h2>Translation: </h2>";
+					echo $translation;
+					?>
+				</td>
+			</tr>
+		</table>
+
+    </div>
+    
+    <div id="bg3" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
+    
+    <div class="section">
+    
+        <h2>Título da tabela</h2>
+        
         <p>
         	Description<br/>
 			<input type="button" class = "button" onclick="window.location = 'init.php';" value="Reset table"></input></br>
@@ -90,37 +123,6 @@
 				</form>
 			</tr>
 		</tbody></table>
-    </div>
-    
-    <div id="bg3" class="backgroundImage" data-stellar-background-ratio="0.5"></div>
-    
-    <div class="section">
-    
-        <h2>Título da tabela</h2>
-        <p>Tabela aqui.</p>
-        
-		<table>
-			<tr>
-				<td style='width: 30%;'><img class = 'newappIcon' src='images/newapp-icon.png'>
-				</td>
-				<td>
-					<h2>Watson Language Identification</h2>
-					<p><span class="error">* required field.</span></p>
-					<form method = "POST">
-						Enter text to identify language: <textarea name="textLID" rows="5" cols="40"><?php echo $textLID;?></textarea>
-	                       
-						<span class="error">* <?php echo $textLIDErr;?></span>
-	                       
-						<input type="submit" name="translate" value="Translate">
-					</form>
-	             
-					<?php
-					echo "<h2>Translation: </h2>";
-					echo $translation;
-					?>
-				</td>
-			</tr>
-		</table>
 
     </div>
     

@@ -65,7 +65,7 @@
 						Name:
 					</td>
 					<td style="width: 20%">
-						<input type = "text" style = "width: 80%" name = "name" value="{$name}"></input>
+						<input type = "text" style = "width: 80%" name = "name" value="<?php echo $name;?>"></input>
 					</td>
 					<td style="width: 10%">
 						Text:
@@ -112,6 +112,7 @@
 						<input type="submit" class="submit" name="store" value="Store in Table" />
 					</td>
 				</tr>
+				<tr></tr>
 				<tr><td colspan="5"><span class="error">* <?php echo $textLIDErr;?></span></td></tr>
 			</table>		
 		</form>

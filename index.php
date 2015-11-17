@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>WatsonHelper Application</title>
+	<title>WatsonCommunicator Application</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel='stylesheet'  href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' type='text/css'>
@@ -36,7 +36,7 @@
 
 	<div id="navigationBar">
 		 <div class="navigationItem"><img src="images/newapp-icon.png"></div>
-		 <div class="navigationItem"><h1 id="navigationTitle">WatsonHelper</h1></div>
+		 <div class="navigationItem"><h1 id="navigationTitle">WatsonCommunicator</h1></div>
 	</div>
 	
 	<div id="bg1" data-stellar-background-ratio="0.5">
@@ -67,7 +67,7 @@
 					<td style="width: 20%">
 						<input type = "text" style = "width: 80%" name = "name" value="<?php echo $name;?>"></input>
 					</td>
-					<td style="width: 10%">
+					<td style="width: 10%" rowspan="2">
 						Text:
 					</td>
 					<td style="width: 20%" rowspan="2">
@@ -102,17 +102,17 @@
 							<option value="es">Spanish</option>
 						</select>
 					</td>
-					<td style="width: 10%">
+					<td style="width: 10%" rowspan="2">
 						Translation:
 					</td>
 					<td style="width: 20%" rowspan="2">
 						<textarea name="translatedText" rows="5" cols="40" maxlength="200"><?php echo $translation; ?></textarea>
 					</td>
-					<td style="width: 10%">
+					<td style="width: 10%" rowspan="2">
 						<input type="submit" class="submit" name="store" value="Store in Table" />
 					</td>
 				</tr>
-				<tr></tr>
+				<tr><td></td><td></td></tr>
 				<tr><td colspan="5"><span class="error"><?php echo $textLIDErr;?></span></td></tr>
 			</table>		
 		</form>

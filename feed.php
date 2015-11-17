@@ -1,5 +1,11 @@
 <?php
 
+// global variables
+$textLID = "";
+$textLIDErr = "";
+$textLang = "";
+$translation = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 	if (isset($_POST["insert"])) {
 		
@@ -15,10 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //either insert or translate
 		
 	} else if (isset($_POST["translate"])) {
 		
+		//echo '<body> to traduzindo <br/></body>'
 		// translating text
 		if (empty($_POST["textLID"])) {
+			//echo '<body> ta vazio <br/></body>'
 			$textLIDErr = "Text is required (at least 3 words)";
 	    } else {
+	    	//echo '<body> tem coisa <br/></body>'
 	      	$textLID = test_input($_POST["textLID"]);
 	      	//echo "Meu texto eh" . $textLID;
 	       	$translation = testLangID($textLID);
@@ -39,13 +48,6 @@ if ($result = $mysqli->query($strsql)) {
 	//Could be many reasons, but most likely the table isn't created yet. init.php will create the table.
 	echo "<b>Can't query the database, did you <a href = init.php>Create the table</a> yet?</b>";
 }
-
-
-// define variables and set to empty values
-$textLID = "";
-$textLIDErr = "";
-$textLang = "";
-$translation = "";
 
 
 function testLangID($data) {

@@ -133,7 +133,7 @@ h1#navigationTitle::first-letter {
 }
 
 .backgroundImage {
-    height: 750px;
+    height: 600px;
     width: 100%;
     background: white;
     z-index: 10;
@@ -141,7 +141,7 @@ h1#navigationTitle::first-letter {
 
 #bg1 {
 	padding-top: 350px;
-	height: 750px;
+	height: 600px;
     width: 100%;
     z-index: 10;
     background: url(../images/backgroundBlue.jpg) repeat;
